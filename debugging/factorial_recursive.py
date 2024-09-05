@@ -2,25 +2,18 @@
 import sys
 
 def factorial(n):
-    if n < 0;
-        raise ValueError("Factorial is not defined for negative numbers.")
-    result = 1
-    for i in range(2, n + 1):
-        result *= i
-    return result
+    """
+    Calculates the factorial of a non-negative integer n using recursion.
 
-if __name__=="__main__":
-    if len(sys.argv) != 2:
-        print("Usage: ./factorial.py <non.negative integer>")
-        sys.exit(1)
+    Parameters:
+    n (int): A non-negative integer whose factorial is to be calculated.
 
-    try:
-        n = int(sys.argv[1])
-        if n < 0:
-            raise ValueError
-        f = factorial(n)
-        print(f)
-    except ValueError:
-        print("Error: Please provide a non-negative integer.")
-        sys.exit(1)
-
+    Returns:
+    int: The factorial of the input integer n. Returns 1 if n is 0.
+    """
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)
+f = factorial(int(sys.argv[1]))
+print(f)
